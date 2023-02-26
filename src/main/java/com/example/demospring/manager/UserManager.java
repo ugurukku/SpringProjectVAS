@@ -1,42 +1,37 @@
 package com.example.demospring.manager;
 
 import com.example.demospring.entity.User;
+import com.example.demospring.repository.UserRepository;
 import com.example.demospring.service.UserService;
-import org.springframework.stereotype.Component;
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
-@Component
+@Service
+@AllArgsConstructor
 public class UserManager implements UserService {
 
-    private static List<User> lists = new ArrayList<>();
-
-    static{
-        lists.add(new User(1,"Vezife Quliyeva", LocalDate.now().minusYears(20)));
-        lists.add(new User(2,"Aytac Memmedli", LocalDate.now().minusYears(25)));
-        lists.add(new User(3,"Sefiqe Xanmemmedova", LocalDate.now().minusYears(26)));
-    }
+    private final UserRepository userRepository;
 
     @Override
     public List<User> getAll() {
-        return lists;
+        return userRepository.findAll();
     }
 
     @Override
     public User getById(int id) {
-        return lists.get(id-1);
+        return userRepository.findById(id).get();
     }
 
     @Override
     public User saveUser(User user) {
-        lists.add(user);
+        userRepository.save(user);
         return user;
     }
 
     @Override
     public void deleteUser(int id) {
-        lists.remove(id-1);
+       userRepository.deleteById(id);
     }
 }
