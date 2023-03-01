@@ -9,7 +9,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api")
 public class UserController {
-
+// adlandirma yoxdu
     private final UserManager userManager;
 
     public UserController(UserManager userManager) {
