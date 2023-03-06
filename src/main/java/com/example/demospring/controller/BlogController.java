@@ -21,11 +21,6 @@ public class BlogController {
         return manager.getAll();
     }
 
-    @GetMapping("/user/{user_id}")
-    public List<Blog> getAll(@PathVariable("user_id") int id){
-        return manager.getAllByUser(id);
-    }
-
     @GetMapping("/{id}")
     public Blog getById(@PathVariable int id){
         return manager.getById(id);

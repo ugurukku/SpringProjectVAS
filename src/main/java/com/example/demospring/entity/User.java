@@ -1,6 +1,7 @@
 package com.example.demospring.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
@@ -24,12 +25,10 @@ public class User {
     private Integer id;
 
     @Column(name = "tam_ad")
+    @JsonAlias(value = "tam_ad")
     private String fullName;
 
     @Column(name = "tevellud")
     private LocalDate age;
-
-    @OneToMany(mappedBy = "user")
-    List<Blog> blogs;
 
 }

@@ -20,10 +20,6 @@ public class BlogManager implements BlogService {
         return repository.findAll();
     }
 
-    @Override
-    public List<Blog> getAllByUser(int id) {
-        return repository.findAllByUser(User.builder().id(id).build());
-    }
 
     @Override
     public Blog getById(int id) {

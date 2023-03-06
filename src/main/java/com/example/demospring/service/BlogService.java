@@ -9,7 +9,6 @@ public interface BlogService {
 
     List<Blog> getAll();
 
-    List<Blog> getAllByUser(int id);
 
     Blog getById(int id);
 
