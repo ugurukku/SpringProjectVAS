@@ -29,6 +29,7 @@ public class BlogController {
     @PostMapping
     @ResponseStatus(code = HttpStatus.CREATED)
     public void saveUser(@RequestBody Blog blog){
+        System.out.println(blog.getUser());
         manager.saveBlog(blog);
     }
 

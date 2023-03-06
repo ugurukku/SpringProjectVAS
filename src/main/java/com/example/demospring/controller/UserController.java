@@ -25,6 +25,11 @@ public class UserController {
         return userManager.getById(id);
     }
 
+    @GetMapping("/{id}/blogs")
+    public List<Blog> getBlogsById(@PathVariable int id){
+        return userManager.getById(id).getBlogs();
+    }
+
     @PostMapping
     @ResponseStatus(code = HttpStatus.CREATED)
     public void saveUser(@RequestBody User user){

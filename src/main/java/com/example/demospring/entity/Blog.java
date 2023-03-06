@@ -21,7 +21,7 @@ public class Blog {
     @Column(name = "blog_kontenti")
     String content;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     User user;
 }

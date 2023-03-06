@@ -31,4 +31,8 @@ public class User {
     @Column(name = "tevellud")
     private LocalDate age;
 
+    @OneToMany(mappedBy = "user")
+    @JsonIgnore
+    List<Blog> blogs;
+
 }
